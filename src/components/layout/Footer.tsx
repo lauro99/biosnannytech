@@ -27,7 +27,7 @@ export default function Footer() {
               Educamos y cuidamos lo más valioso de tu vida, integrando innovación, seguridad y excelencia académica desde el primer día.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors text-white"><FacebookIcon /></a>
+              <a href="https://www.facebook.com/share/1DdAkeTEPf/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors text-white"><FacebookIcon /></a>
               <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition-colors text-white"><InstagramIcon /></a>
               <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors text-white"><TwitterIcon /></a>
             </div>
