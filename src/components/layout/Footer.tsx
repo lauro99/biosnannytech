@@ -5,7 +5,7 @@ import { FacebookIcon, InstagramIcon, TwitterIcon } from '../ui/Icons';
 
 export default function Footer() {
   return (
-    <footer id="contacto" className="bg-secondary-dark text-slate-300 pt-20 pb-10 border-t border-secondary">
+    <footer className="bg-secondary-dark text-slate-300 pt-20 pb-10 border-t border-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
@@ -37,9 +37,9 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6 text-lg">Explorar</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="#inicio" className="hover:text-primary transition-colors">Inicio</Link></li>
-              <li><Link href="#beneficios" className="hover:text-primary transition-colors">Nuestros Servicios</Link></li>
-              <li><Link href="#instalaciones" className="hover:text-primary transition-colors">Instalaciones</Link></li>
+              <li><Link href="/#inicio" className="hover:text-primary transition-colors">Inicio</Link></li>
+              <li><Link href="/#beneficios" className="hover:text-primary transition-colors">Nuestros Servicios</Link></li>
+              <li><Link href="/#instalaciones" className="hover:text-primary transition-colors">Instalaciones</Link></li>
               <li><Link href="#" className="hover:text-primary transition-colors">Blog para Padres</Link></li>
             </ul>
           </div>
@@ -59,15 +59,15 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-6 text-lg">Contacto</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-primary mt-0.5" />
-                <span className="text-slate-400">Av. Innovación 1234, Distrito Tecnológico.</span>
+                <MapPin size={22} className="text-primary mt-0.5 shrink-0" />
+                <span className="text-slate-400">Lima 3, Jardines del Cupatitzio, Uruapan</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={18} className="text-accent-light" />
-                <span className="text-slate-400">+52 55 1234 5678</span>
+                <Phone size={20} className="text-[#25D366] shrink-0" />
+                <span className="text-slate-400">452 500 5450 (WhatsApp)</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={18} className="text-primary" />
+                <Mail size={20} className="text-primary shrink-0" />
                 <span className="text-slate-400">hola@biosnannytech.com</span>
               </li>
             </ul>

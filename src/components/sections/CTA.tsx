@@ -11,7 +11,7 @@ export default function CTA() {
         <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto relative z-10">
           Agenda una visita guiada sin compromiso. Conoce a nuestras maestras, experimenta nuestra app para padres y enamórate de nuestro modelo educativo.
         </p>
-        <Link href="#contacto" className="bg-primary text-secondary-dark hover:bg-primary-light px-10 py-4 rounded-full font-bold text-lg shadow-lg transition-all hover:scale-105 relative z-10 inline-block">
+        <Link href="/contacto" className="bg-primary text-secondary-dark hover:bg-primary-light px-10 py-4 rounded-full font-bold text-lg shadow-lg transition-all hover:scale-105 relative z-10 inline-block">
           Quiero agendar una visita
         </Link>
       </div>

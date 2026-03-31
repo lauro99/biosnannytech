@@ -33,10 +33,10 @@ export default function Hero() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 mb-10 w-full sm:w-auto">
-            <Link href="#contacto" className="bg-[#fcd05c] hover:bg-[#fad875] text-[#17323f] px-8 py-3.5 rounded-full font-bold shadow-[0_0_20px_rgba(252,208,92,0.3)] transition-all transform hover:scale-105 w-full sm:w-auto text-center inline-block">
+            <Link href="/contacto" className="bg-[#fcd05c] hover:bg-[#fad875] text-[#17323f] px-8 py-3.5 rounded-full font-bold shadow-[0_0_20px_rgba(252,208,92,0.3)] transition-all transform hover:scale-105 w-full sm:w-auto text-center inline-block">
               Agendar visita gratuita
             </Link>
-            <Link href="#beneficios" className="bg-transparent hover:bg-white/5 text-slate-200 border border-slate-400/50 px-8 py-3.5 rounded-full font-medium transition-colors w-full sm:w-auto text-center inline-block">
+            <Link href="/#beneficios" className="bg-transparent hover:bg-white/5 text-slate-200 border border-slate-400/50 px-8 py-3.5 rounded-full font-medium transition-colors w-full sm:w-auto text-center inline-block">
               Ver cómo funciona
             </Link>
           </div>
