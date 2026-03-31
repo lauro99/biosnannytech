@@ -40,7 +40,7 @@ export default function Footer() {
               <li><Link href="/#inicio" className="hover:text-primary transition-colors">Inicio</Link></li>
               <li><Link href="/#beneficios" className="hover:text-primary transition-colors">Nuestros Servicios</Link></li>
               <li><Link href="/#instalaciones" className="hover:text-primary transition-colors">Instalaciones</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Blog para Padres</Link></li>
+              <li><Link href="/promociones" className="text-[#facc33] font-semibold hover:text-white transition-colors">Promociones 🎁</Link></li>
             </ul>
           </div>
 
