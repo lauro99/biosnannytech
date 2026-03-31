@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Servicios() {
   return (
     <section id="servicios" className="py-24 bg-white">
@@ -20,9 +22,9 @@ export default function Servicios() {
               <p className="text-slate-600 mb-6 flex-1 text-sm leading-relaxed">
                 Para niños de 1 a 3 años. Fomentamos el desarrollo psicomotor, estimulación sensorial, control de esfínteres e interacción social en un ambiente 100% seguro.
               </p>
-              <button className="text-left font-semibold text-[#b58b4b] hover:text-[#1b3644] transition-colors text-sm flex items-center gap-2 mt-auto">
+              <Link href="/servicios/maternal" className="text-left font-semibold text-[#b58b4b] hover:text-[#1b3644] transition-colors text-sm flex items-center gap-2 mt-auto">
                 Ver plan <span className="text-lg leading-none">&rarr;</span>
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -36,9 +38,9 @@ export default function Servicios() {
               <p className="text-slate-600 mb-6 flex-1 text-sm leading-relaxed">
                 Niveles preescolares (3 a 6 años) con un programa bilingüe. Enfocado en lectoescritura, lógica-matemática y desarrollo de inteligencia emocional.
               </p>
-              <button className="text-left font-semibold text-[#3b8775] hover:text-[#1b3644] transition-colors text-sm flex items-center gap-2 mt-auto">
+              <Link href="/servicios/kinder" className="text-left font-semibold text-[#3b8775] hover:text-[#1b3644] transition-colors text-sm flex items-center gap-2 mt-auto">
                 Ver plan <span className="text-lg leading-none">&rarr;</span>
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -52,9 +54,9 @@ export default function Servicios() {
               <p className="text-slate-600 mb-6 flex-1 text-sm leading-relaxed">
                 Extensión de horario. Talleres de robótica básica, iniciación artística, música y apoyo en tareas. Ideal para nutrir talentos extraescolares.
               </p>
-              <button className="text-left font-semibold text-purple-600 hover:text-[#1b3644] transition-colors text-sm flex items-center gap-2 mt-auto">
+              <Link href="/servicios/clubes" className="text-left font-semibold text-purple-600 hover:text-[#1b3644] transition-colors text-sm flex items-center gap-2 mt-auto">
                 Ver clubes <span className="text-lg leading-none">&rarr;</span>
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -74,12 +76,11 @@ export default function Servicios() {
                   <li className="flex items-center gap-1.5"><span className="text-blue-500">✔</span> Incluye horario tarde/noche.</li>
                 </ul>
               </div>
-              <button className="text-left font-semibold text-orange-500 hover:text-orange-700 transition-colors text-sm flex items-center gap-2 mt-auto">
+              <Link href="/servicios/estancia" className="text-left font-semibold text-orange-500 hover:text-orange-700 transition-colors text-sm flex items-center gap-2 mt-auto">
                 Consultar opciones <span className="text-lg leading-none">&rarr;</span>
-              </button>
+              </Link>
             </div>
           </div>
-
         </div>
       </div>
     </section>
