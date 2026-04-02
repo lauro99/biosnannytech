@@ -5,7 +5,7 @@ import Contacto from '@/components/sections/Contacto';
 import ScrollToTop from '@/components/ui/ScrollToTop';
 
 export const metadata: Metadata = {
-  title: 'Contacto y Visitas | BiosNannyTech',
+  title: 'Agendar Visita | BiosNannyTech',
   description: 'Agenda tu visita guiada para conocer BiosNannyTech, el primer kínder tecnológico. Deja tus datos y con gusto te atenderemos.',
 };
 

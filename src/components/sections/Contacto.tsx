@@ -1,16 +1,50 @@
 'use client';
 
 import { useState } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, Loader2 } from 'lucide-react';
 
 export default function Contacto() {
   const [enviado, setEnviado] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [fechaSeleccionada, setFechaSeleccionada] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Obtener fecha actual en formato local exacto (YYYY-MM-DD) para evitar problemas de zona horaria
+  const getLocalDateStr = () => {
+    const dateObj = new Date();
+    return dateObj.getFullYear() + '-' + 
+           String(dateObj.getMonth() + 1).padStart(2, '0') + '-' + 
+           String(dateObj.getDate()).padStart(2, '0');
+  };
+
+  const today = getLocalDateStr();
+  const isToday = fechaSeleccionada === today;
+  const currentHour = new Date().getHours();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar el formulario a tu backend o servicio de correo (como Formspree, Resend, etc.)
-    setEnviado(true);
-    setTimeout(() => setEnviado(false), 5000);
+    setLoading(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setEnviado(true);
+      } else {
+        alert('Hubo un error al enviar, por favor intenta de nuevo.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error de conexión. Inténtalo más tarde.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -25,10 +59,10 @@ export default function Contacto() {
           {/* Información del Lado Izquierdo */}
           <div>
             <h2 className="text-3xl md:text-5xl font-bold text-secondary-dark mb-6 tracking-tight">
-              Agenda una visita a <span className="text-accent">nuestras instalaciones</span>
+              Agendar Visita
             </h2>
             <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-              Déjanos tus datos y un asesor se pondrá en contacto contigo para programar un recorrido personalizado. Ven a descubrir por qué somos la mejor opción para el desarrollo de tus pequeños.
+              Déjanos tus datos y un asesor se comunicará contigo para programar un recorrido personalizado. Ven a descubrir por qué somos la mejor opción para el desarrollo de tus pequeños.
             </p>
 
             <div className="space-y-6">
@@ -65,24 +99,39 @@ export default function Contacto() {
                   onClick={() => setEnviado(false)}
                   className="mt-4 text-primary font-medium hover:text-primary-dark transition-colors"
                 >
-                  Enviar otro mensaje
+                  Agendar otra visita
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <h3 className="text-2xl font-bold text-secondary-dark mb-6">Completa tus datos</h3>
                 
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="nombre">
-                    Nombre del Padre/Madre <span className="text-red-500">*</span>
-                  </label>
-                  <input 
-                    type="text" 
-                    id="nombre" 
-                    required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50"
-                    placeholder="Ej. Ana García"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="nombre">
+                      Nombre del Padre/Madre <span className="text-red-500">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      id="nombre" 
+                      name="nombre"
+                      required
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50"
+                      placeholder="Ej. Ana García"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="nombreNino">
+                      Nombre del niñ@
+                    </label>
+                    <input 
+                      type="text" 
+                      id="nombreNino" 
+                      name="nombreNino"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50"
+                      placeholder="Ej. Luis o María"
+                    />
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -93,6 +142,7 @@ export default function Contacto() {
                     <input 
                       type="tel" 
                       id="telefono" 
+                      name="telefono"
                       required
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50"
                       placeholder="Ej. 55 1234 5678"
@@ -104,12 +154,15 @@ export default function Contacto() {
                     </label>
                     <select 
                       id="edad" 
+                      name="edad"
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50 text-slate-700"
                     >
                       <option value="">Selecciona...</option>
-                      <option value="1-2">1 a 2 años (Maternal)</option>
-                      <option value="3-4">3 a 4 años (K1-K2)</option>
-                      <option value="5-6">5 a 6 años (K3)</option>
+                      <option value="1-2">1 a 2 años</option>
+                      <option value="3-4">3 a 4 años</option>
+                      <option value="5-6">5 a 6 años</option>
+                      <option value="7-8">7 a 8 años</option>
+                      <option value="9-10">9 a 10 años</option>
                     </select>
                   </div>
                 </div>
@@ -121,9 +174,63 @@ export default function Contacto() {
                   <input 
                     type="email" 
                     id="email" 
+                    name="email"
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50"
                     placeholder="tu@correo.com"
                   />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="fecha">
+                      Fecha preferida para la visita
+                    </label>
+                    <input 
+                      type="date" 
+                      id="fecha" 
+                      name="fecha"
+                      min={today}
+                      value={fechaSeleccionada}
+                      onChange={(e) => setFechaSeleccionada(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50 text-slate-700"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="horario">
+                      Horario de preferencia
+                    </label>
+                    <select 
+                      id="horario" 
+                      name="horario"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50 text-slate-700"
+                    >
+                      <option value="">Selecciona horario...</option>
+                      <option value="8-10" disabled={isToday && currentHour >= 10}>8:00 AM - 10:00 AM</option>
+                      <option value="10-12" disabled={isToday && currentHour >= 12}>10:00 AM - 12:00 PM</option>
+                      <option value="12-14" disabled={isToday && currentHour >= 14}>12:00 PM - 2:00 PM</option>
+                      <option value="14-16" disabled={isToday && currentHour >= 16}>2:00 PM - 4:00 PM</option>
+                      <option value="16-18" disabled={isToday && currentHour >= 18}>4:00 PM - 6:00 PM</option>
+                      <option value="18-mas" disabled={false}>Después de las 6:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="servicio">
+                    Servicio Principal de Interés
+                  </label>
+                  <select 
+                    id="servicio" 
+                    name="servicio"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50 text-slate-700"
+                  >
+                    <option value="">Selecciona una opción...</option>
+                    <option value="maternal">Maternal / Pre-Kinder</option>
+                    <option value="kinder">Kinder (K1-K3)</option>
+                    <option value="estancia">Estancia Infantil</option>
+                    <option value="clubes">Clubes Vespertinos</option>
+                    <option value="multiples">Múltiples servicios</option>
+                  </select>
                 </div>
 
                 <div>
@@ -132,6 +239,7 @@ export default function Contacto() {
                   </label>
                   <textarea 
                     id="mensaje" 
+                    name="mensaje"
                     rows={3}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50 resize-none"
                     placeholder="¿Tienes alguna pregunta específica antes de tu visita?"
@@ -140,10 +248,20 @@ export default function Contacto() {
 
                 <button 
                   type="submit" 
-                  className="w-full bg-primary hover:bg-primary-light text-secondary-dark font-bold text-lg py-4 rounded-xl shadow-lg shadow-primary/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
+                  disabled={loading}
+                  className="w-full bg-primary hover:bg-primary-light disabled:bg-primary/50 text-secondary-dark font-bold text-lg py-4 rounded-xl shadow-lg shadow-primary/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
-                  <span>Agendar Visita Ahora</span>
-                  <Send size={18} />
+                  {loading ? (
+                    <>
+                      <Loader2 className="animate-spin" size={18} />
+                      <span>Enviando...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Agendar Visita Ahora</span>
+                      <Send size={18} />
+                    </>
+                  )}
                 </button>
               </form>
             )}

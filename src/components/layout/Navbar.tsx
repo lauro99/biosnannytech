@@ -33,7 +33,6 @@ export default function Navbar() {
             <Link href="/#servicios" className="text-white hover:text-white/80 transition-colors">Servicios</Link>
             <Link href="/#instalaciones" className="text-white hover:text-white/80 transition-colors">Instalaciones</Link>
             <Link href="/promociones" className="text-[#facc33] font-bold hover:text-white transition-colors relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:bg-[#facc33] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left">Promociones</Link>
-            <Link href="/contacto" className="text-white hover:text-white/80 transition-colors">Contacto</Link>
             <Link href="/contacto" className="bg-[#facc33] text-[#1b3644] px-6 py-2.5 rounded-full font-bold shadow-[0_0_20px_rgba(250,204,51,0.5)] transition-all hover:scale-105 inline-block">
               Agendar Visita
             </Link>
@@ -64,7 +63,6 @@ export default function Navbar() {
           <Link href="/#servicios" onClick={closeMobileMenu} className="block px-4 py-3 text-lg font-medium text-white hover:bg-white/10 rounded-xl transition-colors">Servicios</Link>
           <Link href="/#instalaciones" onClick={closeMobileMenu} className="block px-4 py-3 text-lg font-medium text-white hover:bg-white/10 rounded-xl transition-colors">Instalaciones</Link>
           <Link href="/promociones" onClick={closeMobileMenu} className="block px-4 py-3 text-lg font-bold text-[#facc33] hover:bg-white/10 rounded-xl transition-colors flex items-center gap-2">Promociones <span className="text-xl leading-none">🎁</span></Link>
-          <Link href="/contacto" onClick={closeMobileMenu} className="block px-4 py-3 text-lg font-medium text-white hover:bg-white/10 rounded-xl transition-colors">Contacto</Link>
           <div className="pt-4 border-t border-white/10">
             <Link href="/contacto" onClick={closeMobileMenu} className="block w-full text-center bg-[#facc33] text-[#1b3644] px-6 py-4 rounded-xl font-bold shadow-lg mt-2">
               Agendar Visita

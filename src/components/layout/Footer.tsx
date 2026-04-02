@@ -48,15 +48,15 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6 text-lg">Legal</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="#" className="hover:text-primary transition-colors">Política de Privacidad</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Términos de Servicio</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Políticas de Seguridad</Link></li>
+              <li><Link href="/privacidad" className="hover:text-primary transition-colors">Política de Privacidad</Link></li>
+              <li><Link href="/terminos" className="hover:text-primary transition-colors">Términos de Servicio</Link></li>
+              <li><Link href="/seguridad" className="hover:text-primary transition-colors">Políticas de Seguridad</Link></li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Visit */}
           <div>
-            <h4 className="text-white font-bold mb-6 text-lg">Contacto</h4>
+            <h4 className="text-white font-bold mb-6 text-lg">Agendar Visita</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={22} className="text-primary mt-0.5 shrink-0" />
