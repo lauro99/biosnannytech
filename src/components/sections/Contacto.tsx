@@ -1,16 +1,50 @@
 'use client';
 
 import { useState } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, Loader2 } from 'lucide-react';
 
 export default function Contacto() {
   const [enviado, setEnviado] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [fechaSeleccionada, setFechaSeleccionada] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Obtener fecha actual en formato local exacto (YYYY-MM-DD) para evitar problemas de zona horaria
+  const getLocalDateStr = () => {
+    const dateObj = new Date();
+    return dateObj.getFullYear() + '-' + 
+           String(dateObj.getMonth() + 1).padStart(2, '0') + '-' + 
+           String(dateObj.getDate()).padStart(2, '0');
+  };
+
+  const today = getLocalDateStr();
+  const isToday = fechaSeleccionada === today;
+  const currentHour = new Date().getHours();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar el formulario a tu backend o servicio de correo (como Formspree, Resend, etc.)
-    setEnviado(true);
-    setTimeout(() => setEnviado(false), 5000);
+    setLoading(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setEnviado(true);
+      } else {
+        alert('Hubo un error al enviar, por favor intenta de nuevo.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error de conexión. Inténtalo más tarde.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -80,6 +114,7 @@ export default function Contacto() {
                     <input 
                       type="text" 
                       id="nombre" 
+                      name="nombre"
                       required
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50"
                       placeholder="Ej. Ana García"
@@ -92,6 +127,7 @@ export default function Contacto() {
                     <input 
                       type="text" 
                       id="nombreNino" 
+                      name="nombreNino"
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50"
                       placeholder="Ej. Luis o María"
                     />
@@ -106,6 +142,7 @@ export default function Contacto() {
                     <input 
                       type="tel" 
                       id="telefono" 
+                      name="telefono"
                       required
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50"
                       placeholder="Ej. 55 1234 5678"
@@ -117,6 +154,7 @@ export default function Contacto() {
                     </label>
                     <select 
                       id="edad" 
+                      name="edad"
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50 text-slate-700"
                     >
                       <option value="">Selecciona...</option>
@@ -136,6 +174,7 @@ export default function Contacto() {
                   <input 
                     type="email" 
                     id="email" 
+                    name="email"
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50"
                     placeholder="tu@correo.com"
                   />
@@ -149,7 +188,10 @@ export default function Contacto() {
                     <input 
                       type="date" 
                       id="fecha" 
-                      min={new Date().toISOString().split('T')[0]}
+                      name="fecha"
+                      min={today}
+                      value={fechaSeleccionada}
+                      onChange={(e) => setFechaSeleccionada(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50 text-slate-700"
                     />
                   </div>
@@ -159,15 +201,16 @@ export default function Contacto() {
                     </label>
                     <select 
                       id="horario" 
+                      name="horario"
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50 text-slate-700"
                     >
                       <option value="">Selecciona horario...</option>
-                      <option value="8-10">8:00 AM - 10:00 AM</option>
-                      <option value="10-12">10:00 AM - 12:00 PM</option>
-                      <option value="12-14">12:00 PM - 2:00 PM</option>
-                      <option value="14-16">2:00 PM - 4:00 PM</option>
-                      <option value="16-18">4:00 PM - 6:00 PM</option>
-                      <option value="18-mas">Después de las 6:00 PM</option>
+                      <option value="8-10" disabled={isToday && currentHour >= 10}>8:00 AM - 10:00 AM</option>
+                      <option value="10-12" disabled={isToday && currentHour >= 12}>10:00 AM - 12:00 PM</option>
+                      <option value="12-14" disabled={isToday && currentHour >= 14}>12:00 PM - 2:00 PM</option>
+                      <option value="14-16" disabled={isToday && currentHour >= 16}>2:00 PM - 4:00 PM</option>
+                      <option value="16-18" disabled={isToday && currentHour >= 18}>4:00 PM - 6:00 PM</option>
+                      <option value="18-mas" disabled={false}>Después de las 6:00 PM</option>
                     </select>
                   </div>
                 </div>
@@ -178,6 +221,7 @@ export default function Contacto() {
                   </label>
                   <select 
                     id="servicio" 
+                    name="servicio"
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50 text-slate-700"
                   >
                     <option value="">Selecciona una opción...</option>
@@ -195,6 +239,7 @@ export default function Contacto() {
                   </label>
                   <textarea 
                     id="mensaje" 
+                    name="mensaje"
                     rows={3}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50 resize-none"
                     placeholder="¿Tienes alguna pregunta específica antes de tu visita?"
@@ -203,10 +248,20 @@ export default function Contacto() {
 
                 <button 
                   type="submit" 
-                  className="w-full bg-primary hover:bg-primary-light text-secondary-dark font-bold text-lg py-4 rounded-xl shadow-lg shadow-primary/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
+                  disabled={loading}
+                  className="w-full bg-primary hover:bg-primary-light disabled:bg-primary/50 text-secondary-dark font-bold text-lg py-4 rounded-xl shadow-lg shadow-primary/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
-                  <span>Agendar Visita Ahora</span>
-                  <Send size={18} />
+                  {loading ? (
+                    <>
+                      <Loader2 className="animate-spin" size={18} />
+                      <span>Enviando...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Agendar Visita Ahora</span>
+                      <Send size={18} />
+                    </>
+                  )}
                 </button>
               </form>
             )}
