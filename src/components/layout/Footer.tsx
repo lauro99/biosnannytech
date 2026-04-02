@@ -54,9 +54,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Visit */}
           <div>
-            <h4 className="text-white font-bold mb-6 text-lg">Contacto</h4>
+            <h4 className="text-white font-bold mb-6 text-lg">Agendar Visita</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={22} className="text-primary mt-0.5 shrink-0" />

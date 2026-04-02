@@ -25,10 +25,10 @@ export default function Contacto() {
           {/* Información del Lado Izquierdo */}
           <div>
             <h2 className="text-3xl md:text-5xl font-bold text-secondary-dark mb-6 tracking-tight">
-              Agenda una visita a <span className="text-accent">nuestras instalaciones</span>
+              Agendar Visita
             </h2>
             <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-              Déjanos tus datos y un asesor se pondrá en contacto contigo para programar un recorrido personalizado. Ven a descubrir por qué somos la mejor opción para el desarrollo de tus pequeños.
+              Déjanos tus datos y un asesor se comunicará contigo para programar un recorrido personalizado. Ven a descubrir por qué somos la mejor opción para el desarrollo de tus pequeños.
             </p>
 
             <div className="space-y-6">
@@ -65,7 +65,7 @@ export default function Contacto() {
                   onClick={() => setEnviado(false)}
                   className="mt-4 text-primary font-medium hover:text-primary-dark transition-colors"
                 >
-                  Enviar otro mensaje
+                  Agendar otra visita
                 </button>
               </div>
             ) : (
