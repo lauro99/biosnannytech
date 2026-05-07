@@ -75,9 +75,8 @@ export default function Footer() {
 
         </div>
         
-        <div className="border-t border-secondary pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
+        <div className="border-t border-secondary pt-8 flex justify-center items-center text-sm text-slate-400">
           <p>© {new Date().getFullYear()} BiosNannyTech. Todos los derechos reservados.</p>
-          <p>Hecho con <span className="text-primary">inteligencia</span> y amor para el futuro de tus hijos.</p>
         </div>
       </div>
     </footer>
