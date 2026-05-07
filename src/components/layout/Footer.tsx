@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, Phone, Mail } from 'lucide-react';
-import { FacebookIcon, InstagramIcon, TwitterIcon } from '../ui/Icons';
+import { FacebookIcon, InstagramIcon, WhatsAppIcon } from '../ui/Icons';
 
 export default function Footer() {
   return (
@@ -27,9 +27,9 @@ export default function Footer() {
               Educamos y cuidamos lo más valioso de tu vida, integrando innovación, seguridad y excelencia académica desde el primer día.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/share/1DdAkeTEPf/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors text-white"><FacebookIcon /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition-colors text-white"><InstagramIcon /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors text-white"><TwitterIcon /></a>
+              <a href="https://www.facebook.com/share/1DdAkeTEPf/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-[#1877F2] transition-all duration-300 text-white"><FacebookIcon /></a>
+              <a href="https://www.instagram.com/biosnannytech/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] transition-all duration-300 text-white"><InstagramIcon /></a>
+              <a href="https://wa.me/524525005450" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-[#25D366] transition-all duration-300 text-white"><WhatsAppIcon /></a>
             </div>
           </div>
 

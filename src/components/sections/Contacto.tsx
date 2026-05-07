@@ -210,7 +210,10 @@ export default function Contacto() {
                       <option value="12-14" disabled={isToday && currentHour >= 14}>12:00 PM - 2:00 PM</option>
                       <option value="14-16" disabled={isToday && currentHour >= 16}>2:00 PM - 4:00 PM</option>
                       <option value="16-18" disabled={isToday && currentHour >= 18}>4:00 PM - 6:00 PM</option>
-                      <option value="18-mas" disabled={false}>Después de las 6:00 PM</option>
+                      <option value="18-20" disabled={isToday && currentHour >= 20}>6:00 PM - 8:00 PM</option>
+                      <option value="20-22" disabled={isToday && currentHour >= 22}>8:00 PM - 10:00 PM</option>
+                      <option value="22-00" disabled={false}>10:00 PM - 12:00 AM</option>
+                      <option value="00-02" disabled={false}>12:00 AM - 2:00 AM</option>
                     </select>
                   </div>
                 </div>
