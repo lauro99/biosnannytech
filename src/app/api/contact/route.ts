@@ -1,16 +1,16 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  
   try {
     const data = await request.json();
     const { nombre, nombreNino, telefono, edad, email, fecha, horario, servicio, mensaje } = data;
 
     const { data: emailData, error } = await resend.emails.send({
-      from: 'BIOSNANNYTECH <onboarding@resend.dev>',
-      to: ['laureano.g.t@outlook.com'],
+      from: 'BIOSNANNYTECH <info@biosnannytech.com>',
+      to: ['info@biosnannytech.com'],
       subject: `Nueva Cita Agendada: ${nombre}`,
       html: `
         <h2>Nueva solicitud de visita/cita</h2>
