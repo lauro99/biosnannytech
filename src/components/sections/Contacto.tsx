@@ -205,6 +205,10 @@ export default function Contacto() {
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50 text-slate-700"
                     >
                       <option value="">Selecciona horario...</option>
+                      <option value="00-02" disabled={isToday && currentHour >= 2}>12:00 AM - 2:00 AM</option>
+                      <option value="02-04" disabled={isToday && currentHour >= 4}>2:00 AM - 4:00 AM</option>
+                      <option value="04-06" disabled={isToday && currentHour >= 6}>4:00 AM - 6:00 AM</option>
+                      <option value="06-08" disabled={isToday && currentHour >= 8}>6:00 AM - 8:00 AM</option>
                       <option value="8-10" disabled={isToday && currentHour >= 10}>8:00 AM - 10:00 AM</option>
                       <option value="10-12" disabled={isToday && currentHour >= 12}>10:00 AM - 12:00 PM</option>
                       <option value="12-14" disabled={isToday && currentHour >= 14}>12:00 PM - 2:00 PM</option>
@@ -212,8 +216,7 @@ export default function Contacto() {
                       <option value="16-18" disabled={isToday && currentHour >= 18}>4:00 PM - 6:00 PM</option>
                       <option value="18-20" disabled={isToday && currentHour >= 20}>6:00 PM - 8:00 PM</option>
                       <option value="20-22" disabled={isToday && currentHour >= 22}>8:00 PM - 10:00 PM</option>
-                      <option value="22-00" disabled={false}>10:00 PM - 12:00 AM</option>
-                      <option value="00-02" disabled={false}>12:00 AM - 2:00 AM</option>
+                      <option value="22-00" disabled={isToday && currentHour >= 24}>10:00 PM - 12:00 AM</option>
                     </select>
                   </div>
                 </div>

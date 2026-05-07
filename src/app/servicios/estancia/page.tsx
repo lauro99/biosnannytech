@@ -20,8 +20,8 @@ export default function EstanciaPage() {
           <h3 className="text-2xl font-bold text-[#162f3c] mb-6 border-b border-orange-200 pb-4">Nuestras Tarifas y Modalidades</h3>
           <ul className="space-y-4 text-slate-700 text-lg">
             <li className="flex items-center gap-3"><span className="text-green-500">✔</span> <strong>Servicio por hora, día o mes.</strong></li>
-            <li className="flex items-center gap-3"><span className="text-yellow-500 text-xl">☀️</span> <strong>Promoción de Apertura:</strong> 4 HORAS por $200 pesos.</li>
-            <li className="flex items-center gap-3"><span className="text-[#162f3c] text-xl">🌃</span> <strong>Tarde-Noche:</strong> $100 pesos la hora.</li>
+            <li className="flex items-center gap-3"><span className="text-yellow-500 text-xl">☀️</span> <strong>Promoción de Apertura:</strong> Pregunta por nuestros paquetes de horas.</li>
+            <li className="flex items-center gap-3"><span className="text-[#162f3c] text-xl">🌃</span> <strong>Tarde-Noche:</strong> Tarifa especial por hora.</li>
             <li className="flex items-center gap-3 text-red-500 font-semibold mt-4 pt-4 border-t border-orange-100">
               ¡Cupo limitado! Niños de 0 a 10 años.
             </li>
