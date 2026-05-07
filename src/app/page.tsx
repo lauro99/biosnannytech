@@ -5,7 +5,7 @@ import ScrollToTop from '@/components/ui/ScrollToTop';
 import Hero from '@/components/sections/Hero';
 import Beneficios from '@/components/sections/Beneficios';
 import Servicios from '@/components/sections/Servicios';
-import Instalaciones from '@/components/sections/Instalaciones';
+// import Instalaciones from '@/components/sections/Instalaciones'; // Oculto temporalmente por remodelación
 import CTA from '@/components/sections/CTA';
 
 // --- SEO METADATA ---
@@ -23,7 +23,7 @@ export default function Home() {
       <Hero />
       <Beneficios />
       <Servicios />
-      <Instalaciones />
+      {/* <Instalaciones /> Oculto temporalmente por remodelación */}
       <CTA />
       <Footer />
     </div>
