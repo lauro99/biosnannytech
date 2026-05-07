@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, Phone, Mail } from 'lucide-react';
-import { FacebookIcon, InstagramIcon, TwitterIcon } from '../ui/Icons';
+import { FacebookIcon, InstagramIcon, WhatsAppIcon } from '../ui/Icons';
 
 export default function Footer() {
   return (
@@ -27,9 +27,9 @@ export default function Footer() {
               Educamos y cuidamos lo más valioso de tu vida, integrando innovación, seguridad y excelencia académica desde el primer día.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/share/1DdAkeTEPf/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors text-white"><FacebookIcon /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition-colors text-white"><InstagramIcon /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors text-white"><TwitterIcon /></a>
+              <a href="https://www.facebook.com/share/1DdAkeTEPf/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-[#1877F2] transition-all duration-300 text-white"><FacebookIcon /></a>
+              <a href="https://www.instagram.com/biosnannytech/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] transition-all duration-300 text-white"><InstagramIcon /></a>
+              <a href="https://wa.me/524525005450" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-[#25D366] transition-all duration-300 text-white"><WhatsAppIcon /></a>
             </div>
           </div>
 
@@ -39,7 +39,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li><Link href="/#inicio" className="hover:text-primary transition-colors">Inicio</Link></li>
               <li><Link href="/#beneficios" className="hover:text-primary transition-colors">Nuestros Servicios</Link></li>
-              <li><Link href="/#instalaciones" className="hover:text-primary transition-colors">Instalaciones</Link></li>
+              {/* <li><Link href="/#instalaciones" className="hover:text-primary transition-colors">Instalaciones</Link></li> */}
               <li><Link href="/promociones" className="text-[#facc33] font-semibold hover:text-white transition-colors">Promociones 🎁</Link></li>
             </ul>
           </div>
@@ -66,10 +66,10 @@ export default function Footer() {
                 <Phone size={20} className="text-[#25D366] shrink-0" />
                 <span className="text-slate-400">452 500 5450</span>
               </li>
-              <li className="flex items-center gap-3">
+              {/* <li className="flex items-center gap-3">
                 <Mail size={20} className="text-primary shrink-0" />
                 <span className="text-slate-400">info@biosnannytech.com</span>
-              </li>
+              </li> */}
             </ul>
           </div>
 
