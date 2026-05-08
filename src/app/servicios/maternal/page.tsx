@@ -12,9 +12,9 @@ export default function MaternalPage() {
       
       <main className="flex-grow max-w-4xl mx-auto px-4 py-16 w-full text-center">
         <span className="text-8xl mb-6 inline-block">🧸</span>
-        <h1 className="text-4xl md:text-5xl font-bold text-secondary-dark mb-6">Maternal y Pre-Kinder</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-secondary-dark mb-6">Maternal y Lactantes</h1>
         <p className="text-xl text-slate-600 mb-10 leading-relaxed">
-          Programa diseñado para la estimulación temprana, desarrollo psicomotor y aprendizaje a través del juego para niños de 1 a 3 años.
+          Programa diseñado para la estimulación temprana, desarrollo psicomotor y aprendizaje a través del juego y cuidados.
         </p>
         <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100 mb-10">
           <p className="text-slate-500 mb-6">(Aquí irá la información completa del plan de estudios y metodología.)</p>

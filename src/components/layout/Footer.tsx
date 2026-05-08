@@ -13,7 +13,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <Image 
-                src="/images/logo.png" 
+                src="/images/favicon.png" 
                 alt="BiosNannyTech Logo" 
                 width={48} 
                 height={48} 
@@ -66,10 +66,12 @@ export default function Footer() {
                 <Phone size={20} className="text-[#25D366] shrink-0" />
                 <span className="text-slate-400">452 500 5450</span>
               </li>
-              {/* <li className="flex items-center gap-3">
+              <li className="flex items-center gap-3">
                 <Mail size={20} className="text-primary shrink-0" />
-                <span className="text-slate-400">info@biosnannytech.com</span>
-              </li> */}
+                <a href="mailto:info@biosnannytech.com" className="text-slate-400 hover:text-white transition-colors">
+                  info@biosnannytech.com
+                </a>
+              </li>
             </ul>
           </div>
 

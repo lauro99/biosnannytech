@@ -10,9 +10,9 @@ import CTA from '@/components/sections/CTA';
 
 // --- SEO METADATA ---
 export const metadata: Metadata = {
-  title: 'BiosNannyTech | Kinder y Educación Inteligente',
-  description: 'El primer preescolar tecnológico. Seguridad biométrica, monitoreo en tiempo real para padres y educación STEAM temprana en un entorno de aprendizaje y amor.',
-  keywords: ['kinder', 'preescolar', 'educación temprana', 'educación STEAM', 'monitoreo para padres', 'seguridad biométrica', 'BiosNannyTech'],
+  title: 'BiosNannyTech | Maternal, Lactantes y Estancia Infantil',
+  description: 'Seguridad biométrica, monitoreo en tiempo real para padres y cuidados en un entorno de aprendizaje y amor.',
+  keywords: ['maternal', 'lactantes', 'estancia infantil', 'guardería', 'monitoreo para padres', 'seguridad biométrica', 'BiosNannyTech', 'clubes vespertinos'],
 };
 
 export default function Home() {

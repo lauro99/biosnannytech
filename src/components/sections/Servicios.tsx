@@ -11,16 +11,16 @@ export default function Servicios() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Servicio 1 */}
           <div className="group rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col bg-slate-50 relative">
             <div className="h-44 bg-gradient-to-tr from-[#fcd05c]/30 to-[#fcd05c]/10 relative overflow-hidden flex items-center justify-center">
               <span className="text-5xl group-hover:scale-110 transition-transform duration-300">🧸</span>
             </div>
             <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-lg font-bold text-[#1b3644] mb-2">Maternal y Pre-Kinder</h3>
+              <h3 className="text-lg font-bold text-[#1b3644] mb-2">Maternal y Lactantes</h3>
               <p className="text-slate-600 mb-6 flex-1 text-sm leading-relaxed">
-                Para niños de 1 a 3 años. Fomentamos el desarrollo psicomotor, estimulación sensorial, control de esfínteres e interacción social en un ambiente 100% seguro.
+                Fomentamos el desarrollo psicomotor, estimulación sensorial, control de esfínteres e interacción social en un ambiente 100% seguro y adaptado a sus primeras etapas de vida.
               </p>
               <Link href="/servicios/maternal" className="text-left font-semibold text-[#b58b4b] hover:text-[#1b3644] transition-colors text-sm flex items-center gap-2 mt-auto">
                 Ver plan <span className="text-lg leading-none">&rarr;</span>
@@ -30,22 +30,6 @@ export default function Servicios() {
 
           {/* Servicio 2 */}
           <div className="group rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col bg-slate-50 relative lg:mt-6">
-            <div className="h-44 bg-gradient-to-tr from-[#59b8a3]/30 to-[#59b8a3]/10 relative overflow-hidden flex items-center justify-center">
-              <span className="text-5xl group-hover:scale-110 transition-transform duration-300">📚</span>
-            </div>
-            <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-lg font-bold text-[#1b3644] mb-2">Kinder (K1, K2 y K3)</h3>
-              <p className="text-slate-600 mb-6 flex-1 text-sm leading-relaxed">
-                Niveles preescolares (3 a 6 años) con un programa bilingüe. Enfocado en lectoescritura, lógica-matemática y desarrollo de inteligencia emocional.
-              </p>
-              <Link href="/servicios/kinder" className="text-left font-semibold text-[#3b8775] hover:text-[#1b3644] transition-colors text-sm flex items-center gap-2 mt-auto">
-                Ver plan <span className="text-lg leading-none">&rarr;</span>
-              </Link>
-            </div>
-          </div>
-
-          {/* Servicio 3 */}
-          <div className="group rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col bg-slate-50 relative">
             <div className="h-44 bg-gradient-to-tr from-purple-300/30 to-purple-300/10 relative overflow-hidden flex items-center justify-center">
               <span className="text-5xl group-hover:scale-110 transition-transform duration-300">💡</span>
             </div>
