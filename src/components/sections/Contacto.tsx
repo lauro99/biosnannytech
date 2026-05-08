@@ -231,8 +231,8 @@ export default function Contacto() {
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-slate-50 text-slate-700"
                   >
                     <option value="">Selecciona una opción...</option>
-                    <option value="maternal">Maternal / Pre-Kinder</option>
-                    <option value="kinder">Kinder (K1-K3)</option>
+                    <option value="maternal">Maternal</option>
+                    <option value="lactantes">Lactantes</option>
                     <option value="estancia">Estancia Infantil</option>
                     <option value="clubes">Clubes Vespertinos</option>
                     <option value="multiples">Múltiples servicios</option>
